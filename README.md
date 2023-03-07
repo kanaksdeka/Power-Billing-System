@@ -1,1 +1,1 @@
-This node application provide the Service for Power Builling Sysyrm.
+This application provide the Service for Power Builling System.
