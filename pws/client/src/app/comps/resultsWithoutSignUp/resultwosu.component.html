@@ -1,0 +1,278 @@
+<div>
+    <!-- First part START -->
+    <div class="eb-bg-clor eb-gbl-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 70px; padding-bottom: 50px;">
+                    <div>
+                        <span class="eb-h1">Your usage decides your energy cost</span>
+                    </div>
+                    <div>
+                        <span>Helping Texans reduce their electricity bills</span>
+                    </div>
+    
+                    <div class="eb-line-space">
+                        <div style="display: flex;">
+                        <span>Enter your usage*</span>
+                            <div (mouseenter) ="count = count + 1" (mouseleave) ="count = count - 1">
+                                <img style="margin-left: 5px;height: 17px;" src="/assets/images/question.png">
+                                <span class="eb-tooltips" *ngIf="count === 2">
+                                    <b>If you look at the latest electricity invoice you can find the latest month usage in kWh</b>
+                                    <br>Or 
+                                    <br><b>You can pick based on the below Texas average usage:</b>
+                                    <br>One-bed apartment ~ 600 to 750 kWh
+                                    <br>Two-bed apartment ~ 800 to 900 kWh
+                                    <br>Small home ~ 1100 to 1325 kWh
+                                    <br>Large home ~ 2000 kWh 
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <img style="margin-left: 5px;height: 17px;" src="/assets/images/question.png" placement="right" ngbTooltip="If you look at the latest electricity invoice you can find the latest month usage in kWh
+                                                Or
+                                                You can pick based on the below Texas average usage:
+                                                One-bed apartment ~ 600 to 750kWh
+                                                Two-bed apartment ~ 800 to 900 kWh
+                                                Small home ~ 1100 to 1325 kWh
+                                                Large home ~ 2000 kWh." tooltipClass="eb-looltips-class"> -->
+                        <input [(ngModel)]="formData.meterId" [ngClass]="{'eb-alert' : error && formData.meterId.length < 1}" type="text" class="form-control eb-text-fld" aria-label="Text input with dropdown button" placeholder="Less than 10000 kWh" (keyup)="keyPress($event)">
+                    </div>
+    
+                    <div class="eb-line-space">
+                        Enter zip code*
+                        <input [(ngModel)]="formData.zipCode" [ngClass]="{'eb-alert' : error && formData.zipCode.length < 1}" type="text" class="form-control eb-text-fld" aria-label="Text input with dropdown button" placeholder="Valid Texas ZipCode" (keyup)="keyPress($event)">
+                    </div>
+    
+                    <div class="form-check form-check-inline eb-line-space">
+                        <input [(ngModel)]="formData.isAgree" [ngClass]="{'eb-alert' : error && formData.isAgree !== true}" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" (keyup)="keyPress($event)">
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox1">Agree to <u (click)="showTnc()" style="color: #17af10; cursor: pointer;">terms & conditions</u></label>
+                    </div>
+                    <br>
+                    <br>
+                    <button class="eb-up-btn-main eb-glb-btn" (click)="goToResultWOSU($event)">Find my best plans</button>
+                </div>
+                <div class="col-md-6 hide-on-mobile" style="padding-bottom: 30px; padding-top: 30px; padding-left: 30px;">
+                    <img [src]=imageSrc width="70%"  alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- First part END-->
+
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <!-- Start -->
+                    <img width="20%" class="eb-mid-img" src="./assets/images/footer_house.png"/>
+                    <div class="eb-h1 eb-mid-div1">
+                        Recommended plans available for ZIP <b style="color: #21b50d;">{{zipCode}}</b>
+                    </div>
+                    <div class="eb-mid-div2" #myEl>
+                        <div class="row">
+                            <div class="col-sm-4 eb-ckbox1-align">
+                                <div class="form-check form-check-inline eb-padding-top">
+                                    <input [(ngModel)]="formData.typeRecommended" (change)="checkBoxClicked1($event)" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label" for="inlineCheckbox2" >Recommended Plans</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 eb-ckbox2-align">
+                                <div class="form-check form-check-inline eb-padding-top">
+                                    <input [(ngModel)]="formData.typePromotional" (change)="checkBoxClicked2($event)" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                    <label class="form-check-label" for="inlineCheckbox3" >Promotional & short term plans</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 eb-ckbox3-align">
+                                <div class="form-check form-check-inline eb-padding-top">
+                                    <input [(ngModel)]="formData.typeRenewable" (change)="checkBoxClicked3($event)" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                                    <label class="form-check-label" for="inlineCheckbox4" >Renewable energy plans</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; width:100%; margin-top: 0px;">
+                        <!-- ----- -->
+                        <!-- https://ng-bootstrap.github.io/#/components/carousel/examples -->
+                        <ngb-carousel *ngIf="showIt">
+                            <ng-template ngbSlide>
+                                <div class="eb-div1">
+                                    <div *ngFor="let rateData of result1" class="eb-div2">
+                                    <div class="eb-div2_2">
+                                        <div class="eb-caro-div">
+                                            <img class="eb-caro-image" [src]=rateData.imageSrc/>
+                                        </div>
+                                        <div class="eb-div3">
+                                            ${{rateData.rate}}/Month
+                                        </div>
+                                        <div class="eb-div4 eb-bottom-margin eb-max-height">
+                                            {{rateData.planName}}
+                                        </div>
+                                        <div class="eb-div4">
+                                            Contract Period
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.term}} months
+                                        </div>
+                                        <div class="eb-div4">
+                                            Cancellation Fees
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.pricingDetail}}
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4">
+                                            Renewable Energy
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4_2">
+                                            {{rateData.renewableEnergyId}}
+                                        </div>
+                                        
+                                        <button class="eb-up-btn" (click)="goToURL(rateData.site)" >&nbsp;&nbsp;Choose Plan&nbsp;&nbsp;</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            <div class="carousel-caption">
+                                <!-- Can write something here-->
+                            </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                                <div class="eb-div1">
+                                    <div *ngFor="let rateData of result2" class="eb-div2">
+                                    <div class="eb-div2_2">
+                                        <div class="eb-caro-div">
+                                            <img class="eb-caro-image" [src]=rateData.imageSrc/>
+                                        </div>
+                                        <div class="eb-div3">
+                                            ${{rateData.rate}}/Month
+                                        </div>
+                                        <div class="eb-div4 eb-bottom-margin eb-max-height">
+                                            {{rateData.planName}}
+                                        </div>
+                                        <div class="eb-div4">
+                                            Contract Period
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.term}} months
+                                        </div>
+                                        <div class="eb-div4">
+                                            Cancellation Fees
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.pricingDetail}}
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4">
+                                            Renewable Energy
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4_2">
+                                            {{rateData.renewableEnergyId}}
+                                        </div>
+                                        <button class="eb-up-btn" (click)="goToURL(rateData.site)">&nbsp;&nbsp;Choose Plan&nbsp;&nbsp;</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            <div class="carousel-caption">
+                                <!-- Can write something here-->
+                            </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                                <div class="eb-div1">
+                                    <div *ngFor="let rateData of result3" class="eb-div2">
+                                    <div class="eb-div2_2">
+                                        <div class="eb-caro-div">
+                                            <img class="eb-caro-image" [src]=rateData.imageSrc/>
+                                        </div>
+                                        <div class="eb-div3">
+                                            ${{rateData.rate}}/Month
+                                        </div>
+                                        <div class="eb-div4 eb-bottom-margin eb-max-height">
+                                            {{rateData.planName}}
+                                        </div>
+                                        <div class="eb-div4">
+                                            Contract Period
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.term}} months
+                                        </div>
+                                        <div class="eb-div4">
+                                            Cancellation Fees
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.pricingDetail}}
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4">
+                                            Renewable Energy
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4_2">
+                                            {{rateData.renewableEnergyId}}
+                                        </div>
+                                        <button class="eb-up-btn" (click)="goToURL(rateData.site)">&nbsp;&nbsp;Choose Plan&nbsp;&nbsp;</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            <div class="carousel-caption">
+                                <!-- Can write something here-->
+                            </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                                <div class="eb-div1">
+                                    <div *ngFor="let rateData of result4" class="eb-div2">
+                                    <div class="eb-div2_2">
+                                        <div class="eb-caro-div">
+                                            <img class="eb-caro-image" [src]=rateData.imageSrc/>
+                                        </div>
+                                        <div class="eb-div3">
+                                            ${{rateData.rate}}/Month
+                                        </div>
+                                        <div class="eb-div4 eb-bottom-margin eb-max-height">
+                                            {{rateData.planName}}
+                                        </div>
+                                        <div class="eb-div4">
+                                            Contract Period
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.term}} months
+                                        </div>
+                                        <div class="eb-div4">
+                                            Cancellation Fees
+                                        </div>
+                                        <div class="eb-div4_2">
+                                            {{rateData.pricingDetail}}
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4">
+                                            Renewable Energy
+                                        </div>
+                                        <div *ngIf="formData.typeRenewable" class="eb-div4_2">
+                                            {{rateData.renewableEnergyId}}
+                                        </div>
+                                        <button class="eb-up-btn" (click)="goToURL(rateData.site)">&nbsp;&nbsp;Choose Plan&nbsp;&nbsp;</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            <div class="carousel-caption">
+                                <!-- Can write something here-->
+                            </div>
+                            </ng-template>
+                        </ngb-carousel>
+                        <!-- ----- -->
+                    </div>
+                    <div class="hide-on-mobile" style="margin: 100px 10px 60px 10px;">
+                        <span style="float: left;">© 2020 MyEnergyBuddy</span>
+                        <span style="float: right;"><a (click)="showTnc()" style="cursor: pointer;">Terms & Conditions</a> | <a (click)="showPolicy()" style="cursor: pointer;">Privacy Policy</a></span>
+                    </div>
+                    <div class="hide-on-desktop" style="margin: 60px 0px 5px 0px;">
+                        <span style="font-size: 12px;">© 2020 MyEnergyBuddy</span>
+                        <br>
+                        <span style="font-size: 14px;"><a (click)="showTnc()" style="cursor: pointer;">Terms & Conditions</a> | <a (click)="showPolicy()" style="cursor: pointer;">Privacy Policy</a></span>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- End -->
+
+                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

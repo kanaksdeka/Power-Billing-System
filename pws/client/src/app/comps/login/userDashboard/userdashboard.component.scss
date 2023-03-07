@@ -1,0 +1,23 @@
+.temp {
+    border: 1px solid blue;
+    height: 80px;
+}
+
+.eb-right-padding {
+    padding-right: 10px;
+}
+
+.eb-select-row {
+    border: 2px solid #00187b;
+    background-color: #e7edef;
+}
+
+.my-custom-class .tooltip-inner {
+    background-color: #00187b;
+    color: white;
+    font-size: 12px;
+}
+
+.my-custom-class .arrow::before {
+    border-top-color: #00187b;
+}

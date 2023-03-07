@@ -1,0 +1,405 @@
+<div>
+    <div class="row" style="margin-right: 0px; margin-left: 0px;">
+        <div style="background-color: rgb(255, 255, 255); z-index: 100; box-shadow: -1px 1px 4px 0px rgb(210, 203, 203)"
+            class="col-sm-12">
+            <div
+                style="color: #00187b; display: flex; justify-content: space-between; padding-top: 10px; padding-bottom: 10px;">
+                <div style="min-width: 160px;">
+                    {{profile.address.address}}
+                </div>
+                <div *ngIf="profile.esiid !== '' ">
+                    ESIID: <b>{{profile.esiid}}</b>
+                </div>
+                <div *ngIf="profile.esiid === '' ">
+                    ESIID: <b style="color: #e60d1e;">Incomplete- Please update</b>
+                </div>
+                <div *ngIf="status.profilestat">
+                    Smart Meter: <b>Complete</b>
+                </div>
+                <div *ngIf="!status.profilestat">
+                    Smart Meter: <b style="color: #e60d1e;">Incomplete</b>
+                </div>
+                <div>
+                    Current Provider: <b>{{getCurrentProvider()}}</b>
+                </div>
+                <div>
+                    Contract End Date: <b>{{getContractEndDate() | date: 'MM-dd-yyy'}}</b> &nbsp;
+                    <span>
+                        <svg class="bi bi-calendar2-check" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                            <path fill-rule="evenodd"
+                                d="M14 2H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+                            <path fill-rule="evenodd"
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+                            <path
+                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                        </svg>
+                    </span>
+
+                </div>
+                <div>
+                    <span
+                        style="color: #17af10;border: 1px solid #17af10; border-radius: 50%; padding: 3px 2px 3px 2px;">
+                        <svg class="bi bi-check2" width="20px" height="20px" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"
+        style="margin-right: 0px; margin-left: 0px; border-bottom: 1px solid rgb(210, 203, 203); padding-top: 10px; padding-bottom: 25px;">
+        <div style="display: flex; justify-content: space-between; background-color: rgb(255, 255, 255); height: 20px;"
+            class="col-sm-12">
+            <div style="color: #00187b; display: flex;  padding-top: 10px; padding-bottom: 10px; width: 60%;">
+                <div class="eb-right-padding">
+                    <div class="form-check form-check-inline">
+                        <input [(ngModel)]="recommended" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="option1" (change)="recommendedClicked($event)">
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox1">
+                            Recommended Plans &nbsp;
+                        </label>
+
+                        <svg class="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="eb-right-padding">
+                    <div class="form-check form-check-inline">
+                        <input [(ngModel)]="promotional" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="option1" (change)="promotionalClicked($event)">
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox1">
+                            Promotional & Short -term Plans &nbsp;
+                        </label>
+
+                        <svg class="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="eb-right-padding">
+                    <div class="form-check form-check-inline">
+                        <input [(ngModel)]="renewable" class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                            value="option1" (change)="renewableClicked($event)">
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox2">
+                            Renewable Energy Plans &nbsp;
+                        </label>
+
+                        <svg class="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+            <div style="color: #00187b; display: flex; justify-content: flex-end; width: 40%;">
+                <div>
+                    <div>
+                        Filter By &nbsp;
+                        <div ngbDropdown ngDefaultControl class="d-inline-block"
+                            style="width: 139px; text-align: left;">
+                            <button style="border: 1px solid #ced4da; width: 139px;" class="btn eb-text-fld"
+                                id="dropdownBasic1" ngbDropdownToggle [(ngModel)]="contractLength" ngDefaultControl>
+                                <div style="width: 101px; height: 20px; display: inline-flex; overflow: hidden;">
+                                    <span style="font-size: 14px;">
+                                        {{contractLength}}
+                                        <span *ngIf="contractLength !== 'ALL' && contractLength !== 'Contract Length' ">
+                                            month
+                                        </span>
+                                    </span>
+                                </div>
+                            </button>
+                            <div ngbDropdownMenu ngDefaultControl aria-labelledby="dropdownBasic1" style="max-height: 200px; overflow-y: scroll;">
+                                <button style="font-size: 14px;" ngbDropdownItem (click)="contractLengthDropDown(item)"
+                                    ngDefaultControl *ngFor="let item of contractLengthList">{{item}} <span
+                                        *ngIf="item !== 'ALL' "> month</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    &nbsp;
+                    <div ngbDropdown placement="bottom-right" ngDefaultControl class="d-inline-block"
+                        style="width: 140px;">
+                        <button style="border: 1px solid #ced4da; width: 140px;" class="btn eb-text-fld"
+                            id="dropdownBasic1" ngbDropdownToggle [(ngModel)]="energyProvider" ngDefaultControl>
+                            <div style="width: 101px; height: 20px; display: inline-flex; overflow: hidden;">
+                                <span style="font-size: 14px;">
+                                    {{energyProvider}}
+                                </span>
+                            </div>
+                        </button>
+                        <div ngbDropdownMenu ngDefaultControl aria-labelledby="dropdownBasic1" style="max-height: 200px; overflow-y: scroll;">
+                            <button style="font-size: 14px;" ngbDropdownItem (click)="EnergyProviderDropDown(item)"
+                                ngDefaultControl *ngFor="let item of providerList">{{item}}</button>
+                            <!--
+                            <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>Provider - 2</button>
+                            <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>Provider - 3</button>
+                            -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-right: 0px; margin-left: 0px;">
+        <div class="col-sm-3"
+            style="padding: 0px; border-right: 1px solid rgb(210, 203, 203); max-height: 1273px; overflow-y: scroll;">
+            <div style="border-bottom: 1px solid rgb(210, 203, 203);" *ngFor="let i of result">
+                <div style="display: flex;padding-top: 15px; padding-bottom: 15px;"
+                    [ngClass]="{'eb-select-row' : i.active}" (click)="selectedPlan(i)">
+                    <div style="width: 35%; padding-left: 20px;">
+                        <img style="max-height: 80%; max-width: 80%;" [src]="i.company_logo" alt="">
+                    </div>
+                    <div style="width: 75%; color: #00187b; padding-left: 15px; padding-right: 15px;">
+                        <div style="font-weight: bold;">
+                            {{i.plan_name}}
+                        </div>
+                        <div>
+                            Contract: {{i.term_value}} months
+                        </div>
+                        <div>
+                            <svg style="color: #ffc800;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #ffc800;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #ffc800;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #adaba6;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #adaba6;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-9" style="padding-left: 30px; padding-right: 20px;">
+            <div style="text-align: center; height: 82px; display: flex; padding-top: 33px;">
+                <div style="width: 30%; text-align: left;">
+                    <img style="height: 50px ;margin-top: -10px;" [src]="precSelectedPlanImage" alt="">
+                </div>
+                <div *ngIf="whatYouSave" style="width: 40%;">
+                    <span
+                        style="z-index: 150; position: relative;background-color: #00187b;color: white; border: 1px solid #00187b; border-radius: 30px; padding: 8px 30px 8px 20px; cursor: pointer;"
+                        (click)="whatYouCanSave()">
+                        What you can save
+                    </span>
+                    <span
+                        style="position: relative;left: -27px; background-color: white;color: #00187b; border: 1px solid #00187b; border-radius: 30px; padding: 8px; padding-left: 30px; padding-right: 15px; cursor: pointer;"
+                        (click)="whatYouPayCurrently()">
+                        What you pay currently
+                    </span>
+                </div>
+                <div *ngIf="!whatYouSave" style="width: 40%;">
+                    <span
+                        style="position: relative;background-color: white;color: #00187b; border: 1px solid #00187b; border-radius: 30px; padding: 8px 30px 8px 20px; cursor: pointer;"
+                        (click)="whatYouCanSave()">What
+                        you can save</span>
+                    <span
+                        style="z-index: 150; position: relative;left: -27px; background-color: #00187b; color: white; border: 1px solid #00187b; border-radius: 30px; padding: 8px; padding-left: 30px; padding-right: 15px; cursor: pointer;"
+                        (click)="whatYouPayCurrently()">What
+                        you pay currently</span>
+                </div>
+
+                <div style="width: 30%;">
+                    <span
+                        style="position: relative;background-color: #17af10;color: white; border: 1px solid #17af10; border-radius: 30px; padding: 8px 20px 8px 20px;">
+                        Choose Plan</span>
+                </div>
+
+            </div>
+            <div style="background-color: rgb(255, 255, 255);">
+                <div style="position: relative; width: 100%; margin-top: 20px;">
+                    <div style="position: relative;top: 0; width: 100%;">
+                        <canvas [height]="100" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                            [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                            [chartType]="barChartType" [colors]="lineChartColors">
+                        </canvas>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="text-align: center; color: #00187b; height: 80px; padding-top: 25px;">
+                <span style="padding-left: 20px; padding-right: 20px;">Average Cost:
+                    <b>{{averageCost | currency:'USD':'$'}}</b></span>
+                <span style="padding-left: 20px; padding-right: 20px;">Average Usage:
+                    <b>{{averateUsage | currency:'USD':''}} kWh</b></span>
+                <span style="padding-left: 20px; padding-right: 20px;">Annual Saving:
+                    <b>{{annualSaving | currency:'USD':'$'}}</b></span>
+            </div>
+
+            <div style="padding-left: 50px; padding-right: 50px;">
+                <div
+                    style="height: 200px; font-size: 14px; background-color: #f5f6f8; color: #00187b; border-radius: 7px; border: 1px solid #dee2eb; padding: 30px 0px 20px 70px;">
+                    <div class="row" style="width: 100%;">
+                        <div class="col-md-12" style="text-align: center; font-size: 16px;">
+                            <b>Selected Plan Details</b>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 20px; width: 100%;">
+                        <div class="col-md-3">
+                            Rate/500 kWh : {{precSelectedPlan.price_kwh500}} cent
+                        </div>
+                        <div class="col-md-5" style="overflow: hidden; white-space: nowrap;">
+                            Cancelation Charges : {{precSelectedPlan.pricing_details}}
+                        </div>
+                        <div class="col-md-4" style="overflow: hidden; white-space: nowrap;"
+                            ngbTooltip="{{precSelectedPlan.enroll_phone}}" tooltipClass="my-custom-class">
+                            Call to enroll: {{precSelectedPlan.enroll_phone}}
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 8px; width: 100%;">
+                        <div class="col-md-3">
+                            Rate/1000 kWh : {{precSelectedPlan.price_kwh1000}} cent
+                        </div>
+                        <div class="col-md-5" style="overflow: hidden; white-space: nowrap;"
+                            ngbTooltip="{{precSelectedPlan.special_terms}}" tooltipClass="my-custom-class">
+                            Special Terms : {{precSelectedPlan.special_terms}}
+                        </div>
+                        <div class="col-md-4" style="overflow: hidden; white-space: nowrap;"
+                            ngbTooltip="{{precSelectedPlan.fact_sheet}}" tooltipClass="my-custom-class">
+                            <span style="cursor: pointer;" (click)="goToURL(precSelectedPlan.fact_sheet)">
+                                <u> Fact Sheet </u>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 8px; width: 100%;">
+                        <div class="col-md-3">
+                            Rate/2000 kWh : {{precSelectedPlan.price_kwh2000}} cent
+                        </div>
+                        <div class="col-md-5" style="overflow: hidden; white-space: nowrap;"
+                            ngbTooltip="{{precSelectedPlan.special_terms}}" tooltipClass="my-custom-class">
+                            Renewable Energy : {{precSelectedPlan.special_terms}}
+                        </div>
+                        <div class="col-md-4" style="overflow: hidden; white-space: nowrap;"
+                            ngbTooltip="{{precSelectedPlan.terms_of_service}}" tooltipClass="my-custom-class">
+                            <span style="cursor: pointer;" (click)="goToURL(precSelectedPlan.terms_of_service)">
+                                <u> Terms of service </u>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border: 1ps solid;">
+                <about-eb-login></about-eb-login>
+            </div>
+
+            <div style="margin-top: -37px;">
+                <login-footer></login-footer>
+            </div>
+            <br><br>
+        </div> <!-- col-md-9-->
+    </div>
+
+    <!--  -->
+    <div *ngIf="whatYouPayInputOn"
+        style="position: absolute; height: 923px; width: 100%; top: 177px; background-image: linear-gradient(#ffffffc7, white,white);">
+        <div class="row" style="margin-right: 0px; margin-left: 0px;">
+            <div class="col-sm-3">
+                &nbsp;
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-6">
+                        <div style="text-align: left; margin-top: 80px; padding-left: 40px; padding-right: 40px;">
+                            <div style="padding-top: 46px;">
+                                <div>
+                                    Invoice Month
+                                </div>
+
+                                <div ngbDropdown ngDefaultControl class="d-inline-block">
+                                    <button style="border: 1px solid #ced4da" class="btn eb-text-fld"
+                                        id="dropdownBasic1" ngbDropdownToggle [(ngModel)]="whatYouPayForm.month"
+                                        [ngClass]="{'eb-alert' : error && whatYouPayForm.month.code === '' }"
+                                        ngDefaultControl (keyup)="keyPress2($event)">
+                                        {{whatYouPayForm.month.value}}
+
+                                    </button>
+                                    <div ngbDropdownMenu ngDefaultControl aria-labelledby="dropdownBasic1">
+                                        <button style="font-size: 14px;" ngbDropdownItem
+                                            (click)="invoideMonthDropDown(item)" ngDefaultControl
+                                            *ngFor="let item of invoideMonthDropDownList">{{item.value}}</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="padding-top: 25px;">
+                                Amount Due
+                                <input [(ngModel)]="whatYouPayForm.amount"
+                                    [ngClass]="{'eb-alert' : error && whatYouPayForm.amount === ''}" type="text"
+                                    class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                                    placeholder="$" (keyup)="keyPress2($event)">
+
+                            </div>
+                            <div style="padding-top: 25px;">
+                                Usage
+                                <input [(ngModel)]="whatYouPayForm.usage"
+                                    [ngClass]="{'eb-alert' : error && whatYouPayForm.usage === '' }" type="text"
+                                    class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                                    placeholder="Enter usage in kW/hr" (keyup)="keyPress2($event)">
+                            </div>
+                            <div style="padding-top: 34px; text-align: center;">
+                                <span
+                                    style="position: relative; cursor: pointer; background-color: #17af10;color: white; border: 1px solid #17af10; border-radius: 30px; padding: 8px 20px 8px 20px;"
+                                    (click)="getUsage()" (keyup)="keyPress2($event)">
+                                    Submit
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!--  -->
+</div>

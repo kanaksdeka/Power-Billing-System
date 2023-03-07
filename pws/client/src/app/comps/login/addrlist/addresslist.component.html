@@ -1,0 +1,42 @@
+<div style="padding: 20px;">
+    <div style="border-radius: 17px; background-color: white;" (click) = "closeModal($event)">
+        <div (click) = "closeModal($event)"
+            style="position: absolute; cursor: pointer; right: 10px; top:7px; color: white; background-color: #17b50d; border-radius: 50%; padding: 5px; width: 32px; height: 32px;">
+            <svg class="bi bi-x" width="22px" height="22px" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                <path fill-rule="evenodd"
+                    d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+            </svg>
+        </div>
+
+    <div *ngIf="!msg || msg.length < 1" class="modal-header"
+        style="background-image: linear-gradient(to right, #03145a, #00187b); color: white;">
+        <h5 class="modal-title">Please select your address</h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="closeModal('dismiss')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div *ngIf="!msg || msg.length < 1" style="max-height: 230px;">
+            <div  *ngFor="let item of address">
+                <div class="eb-addr-lst" (click)="selectAddress(item.address)">
+                    {{item.address}}&nbsp;{{item.zip}}
+                </div>
+            </div>
+        </div>
+        <div *ngIf="msg && msg.length > 0" style="text-align: center; padding-bottom: 30px; padding-top: 40px;">
+            {{msg}}
+        </div>
+    </div>
+
+    <!--
+    <div *ngIf="msg && msg.length > 0" class="modal-footer" style="text-align: center;">
+        <button type="button" class="eb-up-btn eb-glb-btn" data-dismiss="modal"
+            (click)="closeModal('close')">Close</button>
+    </div>
+    -->
+
+</div>

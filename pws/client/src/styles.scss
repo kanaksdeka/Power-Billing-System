@@ -1,0 +1,195 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-app-primary: mat-palette($mat-indigo);
+$my-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$my-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('assets/fonts/Poppins/Poppins-Regular.ttf') format('opentype');
+    font-size: 18px;
+  }
+
+  *:focus {outline:none !important}
+  
+  .eb-text-fld {
+    border-radius: 20px;
+  }
+
+  .eb-alert {
+    box-shadow: 0 0 0 0.2rem #fc361c;
+  }
+
+  input::placeholder {
+    color: rgb(166, 158, 185);
+    font-size: 12px;
+    font-style: italic;
+  }
+  ::placeholder {
+    color: rgb(166, 158, 185) !important;
+  }
+  .eb-bg-clor {
+    background-color: #00187b;
+    color: white;
+    font-family: Poppins-Regular;
+  }
+
+  .eb-bg-clor-light {
+    color: #3e455c;
+    font-family: Poppins-Regular;
+  }
+
+.eb-h1 {
+  font-size: 28px; 
+  font-weight: bold;
+}
+
+.eb-h1-blue {
+  color: #00187b; 
+}
+.eb-h2 {
+  font-size: 23px; 
+  font-weight: bold;
+}
+
+.eb-h3 {
+  font-size: 18px; 
+}cd a
+.eb-h2-blue {
+  color: #00187b; 
+}
+
+.eb-line-space {
+  padding-top: 20px;
+}
+
+.eb-gbl-padding {
+  padding-right: 0px;
+  padding-left: 0px;;
+}
+.eb-glb-btn {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+  height: 2px;
+  top: 23px;
+  left: 0px;
+  right: 0px;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+  height: 6px;
+  border-radius: 10px
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  height: 100%;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  background-color: #2abc26;
+}
+.mat-primary .mat-slider-track-fill, .mat-primary .mat-slider-thumb, .mat-primary .mat-slider-thumb-label {
+  background-color: #2abc26;
+  margin-bottom: -1px;
+}
+.mat-accent .mat-slider-thumb {
+  height: 20px;
+  width: 30px;
+  background-color: white;
+  border: solid 2px rgb(228, 30, 30);
+  bottom: -20px;
+  right: -20px;
+}
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  background-color: rgb(255, 255, 255);
+  width: 200px;
+}
+.mat-primary .mat-slider-thumb-label-text {
+  color: rgb(255, 255, 255);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.mat-slider:not(.mat-slider-disabled).cdk-focused .mat-slider-thumb-label {
+  border-radius: 50% 50% 0;
+  width: 50px;
+  height: 50px;
+}
+.mat-slider-horizontal .mat-slider-thumb-label  {
+  right: -24px !important;
+  top: -65px !important;
+  transform: translateY(26px) scale(0.01) rotate(45deg);
+}
+
+@media (min-width: 768px) {
+  .hide-on-desktop {
+    display: none;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .eb-gbl-padding {
+    padding-right: 15px;
+    padding-left: 15px;;
+  }
+
+  .eb-h1 {
+    font-size: 20px; 
+    font-weight: bold;
+  }
+
+  .eb-h2 {
+    font-size: 18px; 
+    font-weight: bold;
+  }
+  
+  .eb-h3 {
+    font-size: 14px; 
+  }
+  .eb-glb-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src: url('assets/fonts/Poppins/Poppins-Regular.ttf') format('opentype');
+    font-size: 10px;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

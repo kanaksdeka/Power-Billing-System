@@ -1,0 +1,318 @@
+<div>
+    <div class="row" style="margin-right: 0px; margin-left: 0px;">
+        <div style="background-color: rgb(255, 255, 255); z-index: 100; box-shadow: -1px 1px 4px 0px rgb(210, 203, 203)"
+            class="col-sm-12">
+            <div
+                style="color: #00187b; display: flex; justify-content: space-between; padding-top: 10px; padding-bottom: 10px;">
+                <div style="min-width: 160px;">
+                    {{profile.address.address}}
+                </div>
+                <div>
+                    ESIID: <b style="color: #e60d1e;">Incomplete- Please update</b>
+                </div>
+                <div >
+                    Smart Meter: <b style="color: #e60d1e;">Incomplete</b>
+                </div>
+                <div>
+                    Current Provider: <b>{{getCurrentProvider()}}</b>
+                </div>
+                <div>
+                    Contract End Date: <b>{{profile.contractendingon | date: 'mm-dd-yyy'}}</b> &nbsp;
+                    <span>
+                        <svg class="bi bi-calendar2-check" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                            <path fill-rule="evenodd"
+                                d="M14 2H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+                            <path fill-rule="evenodd"
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+                            <path
+                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                        </svg>
+                    </span>
+
+                </div>
+                <div>
+                    <span
+                        style="color: #17af10;border: 1px solid #17af10; border-radius: 50%; padding: 3px 2px 3px 2px;">
+                        <svg class="bi bi-check2" width="20px" height="20px" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"
+        style="margin-right: 0px; margin-left: 0px; border-bottom: 1px solid rgb(210, 203, 203); padding-top: 10px; padding-bottom: 25px;">
+        <div style="display: flex; justify-content: space-between; background-color: rgb(255, 255, 255); height: 20px;"
+            class="col-sm-12">
+            <div style="color: #00187b; display: flex;  padding-top: 10px; padding-bottom: 10px; width: 60%;">
+                <div class="eb-right-padding">
+                    <div class="form-check form-check-inline">
+                        <input [(ngModel)]="test" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="option1"
+                            disabled>
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox1">
+                            Recommended Plans &nbsp;
+                        </label>
+
+                        <svg class="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="eb-right-padding">
+                    <div class="form-check form-check-inline">
+                        <input [(ngModel)]="test" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="option1"
+                            disabled>
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox1">
+                            Promotional & Short -term Plans &nbsp;
+                        </label>
+
+                        <svg class="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="eb-right-padding">
+                    <div class="form-check form-check-inline">
+                        <input [(ngModel)]="test" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="option1"
+                            disabled>
+                        <label style="font-size: 13px;" class="form-check-label" for="inlineCheckbox1">
+                            Promotional & Short -term Plans &nbsp;
+                        </label>
+
+                        <svg class="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+            <div style="color: #00187b; display: flex; justify-content: flex-end; width: 40%;">
+                <div>
+                    <div>
+                        Filter By &nbsp;
+                        <div ngbDropdown ngDefaultControl class="d-inline-block">
+                            <button disabled style="border: 1px solid #ced4da" class="btn eb-text-fld" id="dropdownBasic1"
+                                ngbDropdownToggle [(ngModel)]="test" ngDefaultControl><span style="font-size: 14px;">
+                                    Contract Length </span></button>
+                            <div ngbDropdownMenu ngDefaultControl aria-labelledby="dropdownBasic1">
+                                <button style="font-size: 14px;" ngbDropdownItem (click)="dropDownClicked('Action - 1')"
+                                    ngDefaultControl>1 month</button>
+                                <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>2 months</button>
+                                <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>6 months</button>
+                                <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>More than 6
+                                    months</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    &nbsp;
+                    <div ngbDropdown ngDefaultControl class="d-inline-block">
+                        <button disabled style="border: 1px solid #ced4da" class="btn eb-text-fld" id="dropdownBasic1"
+                            ngbDropdownToggle [(ngModel)]="test" ngDefaultControl> <span style="font-size: 14px;">Energy
+                                Provider</span> </button>
+                        <div ngbDropdownMenu ngDefaultControl aria-labelledby="dropdownBasic1">
+                            <button style="font-size: 14px;" ngbDropdownItem (click)="dropDownClicked('Action - 1')"
+                                ngDefaultControl>Provider - 1</button>
+                            <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>Provider - 2</button>
+                            <button style="font-size: 14px;" ngbDropdownItem ngDefaultControl>Provider - 3</button>
+                        </div>
+                    </div>
+
+                    {{test}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position: relative;">
+
+    </div>
+    <div class="row" style="margin-right: 0px; margin-left: 0px;">
+        <div class="col-sm-3" style="padding: 0px; border-right: 1px solid rgb(210, 203, 203);">
+            <div style="border-bottom: 1px solid rgb(210, 203, 203);" *ngFor="let i of [].constructor(10)">
+                <div style="display: flex;padding-top: 15px; padding-bottom: 15px;">
+                    <div style="width: 35%; padding-left: 20px;">
+                        <img style="max-height: 80%; max-width: 80%;" src="./assets/images/gexa.png" alt="">
+                    </div>
+                    <div style="width: 75%; color: #00187b; padding-left: 15px; padding-right: 15px;">
+                        <div style="font-weight: bold;">
+                            Texas Green 12 Auto pay
+                        </div>
+                        <div>
+                            Contract: 12 months
+                        </div>
+                        <div>
+                            <svg style="color: #ffc800;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #ffc800;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #ffc800;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #adaba6;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                            <svg style="color: #adaba6;" class="bi bi-star-fill" width="1em" height="1em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-9" style="padding-left: 30px; padding-right: 20px;">
+            <div style="text-align: center; height: 82px; display: flex; padding-top: 33px;">
+                <div style="width: 30%; text-align: left;">
+                    <img style="height: 50px ;margin-top: -10px;" src="./assets/images/gexa.png" alt="">
+                </div>
+                <div style="width: 40%;">
+                    <span
+                        style="z-index: 150; position: relative;background-color: #00187b;color: white; border: 1px solid #00187b; border-radius: 30px; padding: 8px 20px 8px 20px;">What
+                        you can save</span>
+                    <span
+                        style="z-index: 140; position: relative;left: -27px; background-color: white;color: #00187b; border: 1px solid #00187b; border-radius: 30px; padding: 8px; padding-left: 30px;">What
+                        you pay currently</span>
+                </div>
+                <div style="width: 30%;">
+                    <span
+                        style="position: relative;background-color: #17af10;color: white; border: 1px solid Choose Plan; border-radius: 30px; padding: 8px 20px 8px 20px;">Choose
+                        Plan</span>
+                </div>
+
+            </div>
+            <div style="background-color: rgb(255, 255, 255);">
+                &nbsp;
+            </div>
+
+            <div style="text-align: center; color: #00187b; height: 80px; padding-top: 25px;">
+                <span style="padding-left: 20px; padding-right: 20px;">Average Cost: <b>$189</b></span>
+                <span style="padding-left: 20px; padding-right: 20px;">Average Usage: <b>$189</b></span>
+                <span style="padding-left: 20px; padding-right: 20px;">Average Saving: <b>$189</b></span>
+            </div>
+
+            <div style="padding-left: 50px; padding-right: 50px;">
+                <div
+                    style="height: 200px; font-size: 12px; background-color: #f5f6f8; color: #00187b; border-radius: 7px; border: 1px solid #dee2eb; padding: 30px 20px 20px 80px;">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: center; font-size: 16px;">
+                            <b>Selected Plan Details</b>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 20px;">
+                        <div class="col-md-4">
+                            Rate/500 kWh : 10.2 cent
+                        </div>
+                        <div class="col-md-4">
+                            Cancelation Charges : $135
+                        </div>
+                        <div class="col-md-4">
+                            Call to enroll: +1 800 345 7682
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 8px;">
+                        <div class="col-md-4">
+                            Rate/1000 kWh : 10.1 cent
+                        </div>
+                        <div class="col-md-4">
+                            Special Terms :Autopay enrollment required
+                        </div>
+                        <div class="col-md-4">
+                            Fact Sheet
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 8px;">
+                        <div class="col-md-4">
+                            Rate/2000 kWh : 9.8 cent
+                        </div>
+                        <div class="col-md-4">
+                            Renewable Energy : 15%
+                        </div>
+                        <div class="col-md-4">
+                            Terms of service
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border: 1ps solid;">
+                <about-eb-login></about-eb-login>
+            </div>
+
+            <div style="margin-top: -37px;">
+                <login-footer></login-footer>
+            </div>
+            <br><br>
+        </div> <!-- col-md-9-->
+    </div>
+
+    <div style="position: absolute; height: 923px; width: 100%; top: 177px; background-image: linear-gradient(#ffffffc7, white,white);">
+        <div class="row" style="margin-right: 0px; margin-left: 0px;">
+            <div class="col-sm-3">
+                &nbsp;
+            </div>
+            <div class="col-sm-9">
+                <div style="text-align: center; margin-top: 80px;">
+                    <div>
+                        <img style="text-align: center;" src="./assets/images/bill.png" width="40%" alt="">
+                    </div>
+                    <div class="eb-line-space">
+                        <input style="width: 40%; margin-left: auto; margin-right: auto;" [(ngModel)]="esiid"
+                            [ngClass]="{'eb-alert' : error && esiid.length < 1}" type="text"
+                            class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                            placeholder="Enter your ESIID number here" >
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <span
+                            style="cursor: pointer; position: relative;background-color: white; color: #3e455c; border: 1px solid #3e455c; border-radius: 30px; padding: 8px 20px 8px 20px;"
+                            (click) = "skipEsiId()">
+                            Skip
+                        </span>
+                        <span
+                            style="margin-left: 5px; cursor: pointer; position: relative;background-color: #17af10;color: white; border: 1px solid #17af10; border-radius: 30px; padding: 8px 20px 8px 20px;"
+                            (click) = "submitEsiId()">
+                            Submit
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

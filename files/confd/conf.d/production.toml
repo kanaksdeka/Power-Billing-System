@@ -1,0 +1,4 @@
+[template]
+src = "production.tmpl"
+dest = "/usr/src/app/server/config/environment/production.js"
+

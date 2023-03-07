@@ -1,0 +1,61 @@
+'use strict';
+var path = require('path');
+var appRoot = path.join(require('app-root-dir').get(), '/server/');
+var encryptionDecryption = require(path.join(appRoot, '/utils/aes-encryption-decryption.js'));
+
+var db_username = {{ getenv "db.mongodb.user" }};
+var db_password = {{ getenv "db.mongodb.pass" }};
+var db_replicaset = {{ getenv "db.mongodb.replicaset" }};
+var db_name = {{ getenv "db.mongodb.name" }};
+var replicaName = {{ getenv "db.mongodb.replicaName" }};
+var db_config = '';
+if(replicaName && replicaName !== ''){
+    db_config = db_name +'?replicaSet='+replicaName;
+}else{
+    db_config = db_name;
+}
+var geturl = function() {
+    var url;
+    if (db_username && db_username !== '') {
+        var encryptionDecryptionObj = new encryptionDecryption();
+        var decryptedPassword = encryptionDecryptionObj.decrypt(db_password);
+            console.log("decryptedPassword"+ decryptedPassword);
+        url = 'mongodb://' +
+            db_username +
+            ':' +
+            decryptedPassword +
+            '@' +
+            db_replicaset +
+            '/' +
+            db_config
+    } else {
+        url = 'mongodb://' +
+            db_replicaset +
+            '/' +
+            db_config
+    }
+    console.log('url' + url);
+    return url;
+};
+
+var url = geturl();
+
+module.exports = {
+    mongo_url: url,
+    sso_userinfo: {{ getenv "sso.url" }} + '/' + {{ getenv "sso.api.userinfo" }},
+    mock:false,
+    timeout: {{ getenv "timeout"}},
+    logLevel: {{ getenv "logLevel" }},
+    opco:{
+        country: {{ getenv "opco.country" }},
+        currency: {{ getenv "opco.currency" }},
+        salesChannel: {{ getenv "opco.salesChannel" }}
+
+    },
+    offline:{
+        bulkLeadCreate:{
+            maxInputValuesInCsvPerRow: {{ getenv "maxInputValuesInCsvPerRow" }}
+        }
+    }
+};
+

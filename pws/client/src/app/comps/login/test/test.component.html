@@ -1,0 +1,13 @@
+<div>
+    Kanak D
+    <div style="width: 100%;">
+        <canvas [height]="100" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="lineChartColors">
+        </canvas>
+    </div>
+    <div style="border: 1px solid gray;" *ngFor="let i of userList()">
+        <span>{{i.value}}</span>
+        {{' -- '}}
+        <span>{{i.time}}</span>
+    </div>
+</div>

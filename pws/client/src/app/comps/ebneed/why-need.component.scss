@@ -1,0 +1,21 @@
+.eb-play-btn-pos {
+    position: absolute; 
+    top: 45%; 
+    bottom: 55%;
+    width: 70px;
+    cursor: pointer;
+}
+
+.eb-hide-video {
+    opacity: 0%;
+}
+
+@media (max-width: 767px) {
+    .eb-play-btn-pos {
+        position: absolute; 
+        top: 45%; 
+        bottom: 55%;
+        width: 30px;
+    }
+}
+

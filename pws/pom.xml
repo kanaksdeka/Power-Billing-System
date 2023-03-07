@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ternarylogics.core.hms</groupId>
+		<artifactId>hmscore</artifactId>
+		<version>1.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>hmscore</artifactId>
+	<packaging>pom</packaging>
+	<name>Ternarylogics HMS Services</name>
+	<description>Ternarylogics HMS Services</description>
+
+	<properties>
+	
+	</properties>
+
+	<dependencies>
+		
+	</dependencies>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		
+		<plugins>
+		
+			<!-- package 'dist' folder holding nodejs ui application and node_modules  -->						
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-assembly-plugin</artifactId>
+        		<configuration>
+        			<encoding>UTF-8</encoding>
+        		 	<descriptors>
+          				<descriptor>${project.basedir}/src/main/assembly/nodedist.xml</descriptor>
+          			</descriptors>
+        		</configuration>
+        		<executions>
+          			<execution>
+            			<id>make-assembly</id>
+            			<phase>package</phase>
+            			<goals>
+              				<goal>single</goal>
+            			</goals>
+          			</execution>
+        		</executions>
+      		</plugin>			
+			
+			<!-- package filtered install scripts -->
+			<plugin>
+       			<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-resources-plugin</artifactId>
+        		<executions>
+          			<execution>
+            			<id>copy-scripts</id>
+            			<phase>package</phase>
+            			<goals>
+                            <goal>copy-resources</goal>
+                        </goals>            
+            			<configuration>
+            				<resources>
+      							<resource>
+        							<directory>${project.basedir}/src/main/scripts</directory>
+        							<filtering>true</filtering>        							
+      							</resource>      							
+    						</resources>
+    						<outputDirectory>${project.build.directory}/INSTALL/scripts</outputDirectory>	
+    						<includeEmptyDirs>true</includeEmptyDirs>
+              				<overwrite>true</overwrite>
+            			</configuration>
+          			</execution>          			
+        		</executions>
+      		</plugin>
+      		      		      		
+		</plugins>
+	</build>
+	
+	<profiles>
+      <profile>
+        <id>linux-rpm</id>
+        <activation>
+		  <os>
+            <family>linux</family>
+          </os>
+        </activation>
+
+         <build>
+           <plugins>	  
+			  <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>rpm-maven-plugin</artifactId>
+				<version>2.1-alpha-2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>rpm</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<copyright>(c)Ternarylogics LLP. All rights	reserved</copyright>
+					<distribution>HMS Services</distribution>
+					<group>Application/hms</group>
+					<packager>ternarylogics hms</packager>
+					<changelogFile>src/changelog</changelogFile>
+					<version>${project.version}_${tc.build}_${release.type}</version>
+					<prefix>${tap_prefix}</prefix>
+					<requires>
+						<require>nodejs</require>
+					</requires>
+					<mappings>
+						<mapping>
+							<directory>${tap_prefix}</directory>
+							<filemode>755</filemode>
+							<username>ternarylogics</username>
+							<groupname>ternarylogics</groupname>
+							<sources>
+								<source>
+									<location>${project.build.directory}/${project.build.finalName}-${release.type}.tar.gz</location>
+								</source>
+							</sources>
+						</mapping>
+					</mappings>					
+					<postinstallScriptlet>
+						<scriptFile>${project.build.directory}/INSTALL/scripts/nodejs/postinstall</scriptFile>
+						<fileEncoding>utf-8</fileEncoding>
+					</postinstallScriptlet>
+					<postremoveScriptlet>
+						<scriptFile>${project.build.directory}/INSTALL/scripts/nodejs/postremove</scriptFile>
+						<fileEncoding>utf-8</fileEncoding>					
+					</postremoveScriptlet>
+				</configuration>
+			</plugin>		
+		   </plugins>
+         </build>
+       </profile>
+       
+     </profiles>
+     
+</project>

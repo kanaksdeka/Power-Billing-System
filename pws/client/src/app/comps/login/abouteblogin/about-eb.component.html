@@ -1,0 +1,110 @@
+<div class="eb-gbl-padding" style="color: #00187b;">
+    <div class="container">
+        <div class="row">
+            <div class="col" style="text-align: center; padding-top: 50px; padding-bottom: 90px;">
+                <!-- Start -->
+                <div style="text-align: center; font-size: 18px; font-weight: bold;" #faq>
+                    Everything you need to know about MyEnergyBuddy
+                </div>
+                <br>
+
+                <div class="eb-colaps-width" style="text-align: left; color: #00187b; margin-left: auto; margin-right: auto;">
+                    <div class="eb-about-font eb-colaps-box1" style="display: flex">
+                        <div style="width: 85%; padding-top: 4px;">
+                            <span style="padding-top: 5px;"> How is my electricity bill calculated? </span>
+                        </div>
+                        <div style="width: 15%;">
+                            <img *ngIf="isCollapsed" class="eb-plus-img" src="./assets/images/plus.png"  alt="" (click)="isCollapsed = !isCollapsed">
+                            <img *ngIf="!isCollapsed" class="eb-plus-img" src="./assets/images/minus.png"  alt="" (click)="isCollapsed = !isCollapsed">
+                        </div>
+                    </div>
+                    <div style="position: relative; top: -5px;" id="collapseExample" [ngbCollapse]="isCollapsed">
+                        <div class="card" style="border: 0 solid white; border-bottom: 1px solid;border-left: 1px solid;border-right: 1px solid;">
+                            <div class="card-body eb-about-body-font">
+                                There are few components to your electricity bill which include your contracted rated per kWh with your retail energy provider, base rate of the retail energy provider, TDU rates, taxes, fees and sometimes hidden charges and credits based on your usage.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eb-colaps-width" style="text-align: left; color: #00187b; margin-left: auto; margin-right: auto;">
+                    <div class="eb-about-font eb-colaps-box1" style="display: flex;">
+                        <div style="width: 85%; padding-top: 4px;">
+                            <span> How does MyEnergyBuddy estimate my charges? </span>
+                        </div>
+                        <div style="width: 15%;">
+                            <img *ngIf="isCollapsed2" class="eb-plus-img"  src="./assets/images/plus.png"  alt="" (click)="isCollapsed2 = !isCollapsed2">
+                            <img *ngIf="!isCollapsed2" class="eb-plus-img"  src="./assets/images/minus.png"  alt="" (click)="isCollapsed2 = !isCollapsed2">
+                        </div>
+                    </div>
+                    <div style="position: relative; top: -5px;" id="collapseExample" [ngbCollapse]="isCollapsed2">
+                        <div class="card" style="border: 0 solid white;border-bottom: 1px solid;border-left: 1px solid;border-right: 1px solid;">
+                            <div class="card-body eb-about-body-font">
+                                MyEnergyBuddy checks for all available plans in your area (100's of plans after avoiding plans with marketing gimmicks and complications) and calculates your estimated bill using your usage. You are then shown customized best plans to select.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eb-colaps-width" style="text-align: left; color: #00187b; margin-left: auto; margin-right: auto;">
+                    <div class="eb-about-font eb-colaps-box1" style="display: flex;">
+                        <div style="width: 85%; padding-top: 4px;">
+                            <span> Why is my current usage important? </span>
+                        </div>
+                        <div style="width: 15%;">
+                            <img *ngIf="isCollapsed3" class="eb-plus-img" src="./assets/images/plus.png"  alt="" (click)="isCollapsed3 = !isCollapsed3">
+                            <img *ngIf="!isCollapsed3" class="eb-plus-img" src="./assets/images/minus.png"  alt="" (click)="isCollapsed3 = !isCollapsed3">
+                        </div>
+                    </div>
+                    <div style="position: relative; top: -5px;" id="collapseExample" [ngbCollapse]="isCollapsed3">
+                        <div class="card" style="border: 0 solid white; border-bottom: 1px solid;border-left: 1px solid;border-right: 1px solid;">
+                            <div class="card-body eb-about-body-font">
+                                Each of the plans charge differently based on usage and it is important to estimate the total cost based on actual usages. Some plans might be cheaper when usage is higher and others for lower usage. MyEnergyBuddy simply pick the best plan based your usage.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eb-colaps-width" style="text-align: left; color: #00187b; margin-left: auto; margin-right: auto;">
+                    <div class="eb-about-font eb-colaps-box1" style="display: flex;">
+                        <div style="width: 85%; padding-top: 4px;">
+                            <span> I am moving to a new home, can MyEnergyBuddy help? </span>
+                        </div>
+                        <div style="width: 15%;">
+                            <img *ngIf="isCollapsed4" class="eb-plus-img"  src="./assets/images/plus.png"  alt="" (click)="isCollapsed4 = !isCollapsed4">
+                            <img *ngIf="!isCollapsed4" class="eb-plus-img"  src="./assets/images/minus.png"  alt="" (click)="isCollapsed4 = !isCollapsed4">
+                        </div>
+                    </div>
+                    <div style="position: relative; top: -5px;" id="collapseExample" [ngbCollapse]="isCollapsed4">
+                        <div class="card" style="border: 0 solid white; border-bottom: 1px solid;border-left: 1px solid;border-right: 1px solid;">
+                            <div class="card-body eb-about-body-font">
+                                Yes, we have provided you the average usage of Texans by home type. You can use it to estimate your bill.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eb-colaps-width" style="text-align: left; color: #00187b; margin-left: auto; margin-right: auto;">
+                    <div class="eb-about-font eb-colaps-box1" style="display: flex;">
+                        <div style="width: 85%; padding-top: 4px;">
+                            <span> How is MyEnergyBuddy unbiased? </span>
+                        </div>
+                        <div style="width: 15%;">
+                            <img *ngIf="isCollapsed5" class="eb-plus-img"  src="./assets/images/plus.png"  alt="" (click)="isCollapsed5 = !isCollapsed5">
+                            <img *ngIf="!isCollapsed5" class="eb-plus-img"  src="./assets/images/minus.png"  alt="" (click)="isCollapsed5 = !isCollapsed5">
+                        </div>
+                    </div>
+                    <div style="position: relative; top: -5px;" id="collapseExample" [ngbCollapse]="isCollapsed5">
+                        <div class="card" style="border: 0 solid white; border-bottom: 1px solid;border-left: 1px solid;border-right: 1px solid;">
+                            <div class="card-body eb-about-body-font">
+                                We look at all available plans and show you the best. We remove all plans that ask for your special commitments. This is an absolutely free service and we work independently. There is no partnership with any providers and do not give preference to anyone (Only preference is to all of Texans and a commitment to save hundreds of dollars).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                    
+                <!-- End -->
+            </div>
+        </div>
+    </div>
+</div>

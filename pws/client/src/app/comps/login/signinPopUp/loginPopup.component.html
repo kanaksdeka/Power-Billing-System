@@ -1,0 +1,21 @@
+<div style="padding: 20px;">
+    <div style="border-radius: 17px; background-color: white;">
+        <div (click) = "closeModal($event)"
+            style="position: absolute; cursor: pointer; right: 10px; top:7px; color: white; background-color: #17b50d; border-radius: 50%; padding: 5px; width: 32px; height: 32px;">
+            <svg class="bi bi-x" width="22px" height="22px" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                <path fill-rule="evenodd"
+                    d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+            </svg>
+        </div>
+
+        <sign-in *ngIf="fromParent === 'login' " (myEvent)="closeModal($event)"></sign-in>
+        <forgot-pass *ngIf="fromParent === 'forgot-pass' " (myEvent)="closeModal($event)"></forgot-pass>
+        <skip-meter *ngIf="fromParent === 'skip-meter' " (myEvent)="closeModal($event)"></skip-meter>
+        <what-you-pay *ngIf="fromParent === 'what-you-pay' " (myEvent)="closeModal($event)"></what-you-pay>
+        <change-pass *ngIf="fromParent === 'change-pass' " (myEvent)="closeModal($event)"></change-pass>
+        
+    </div>
+</div>

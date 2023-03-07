@@ -1,0 +1,69 @@
+<div *ngIf="showForgotPass === true">
+    <forgot-pass></forgot-pass>
+</div>
+
+<div *ngIf="showForgotPass === false">
+    <div *ngIf="false">
+        <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="" style="color: #3e455c; padding-right: 84px; padding-left: 84px; padding-top: 28px;">
+        <div class="container" >
+            <div class="row" >
+                <img style="margin-left: auto;margin-right: auto;" src="./assets/images/logo_white.png" width="35%"  alt="">
+            </div>
+            <div class="row eb-line-space">
+                <div class="col-md-6">
+                    <img style="text-align: center;" src="./assets/images/e_man.jpg" width="90%"  alt="">
+                </div>
+                <div class="col-md-6">
+                    <div *ngIf="errorMsg" style="color: red;">
+                        <b>{{errorMsg}}</b>
+                    </div>
+                    <div *ngIf="infoMsg">
+                        <b>{{infoMsg}}</b>
+                    </div>
+                    <div>
+                        <div class="eb-line-space">
+                            Email Address
+                            <input [(ngModel)]="userName" [ngClass]="{'eb-alert' : error && userName.length < 1}"
+                                type="text" class="form-control eb-text-fld"
+                                aria-label="Text input with dropdown button" placeholder="User Name"
+                                (keyup)="keyPress($event)">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="eb-line-space">
+                            Password
+                            <input [(ngModel)]="password" [ngClass]="{'eb-alert' : error && password.length < 1}"
+                                type="password" class="form-control eb-text-fld"
+                                aria-label="Text input with dropdown button" placeholder="Password"
+                                (keyup)="keyPress($event)">
+                        </div>
+                        <div class="eb-line-space">
+                            <button [disabled]="isLoginDisabled" class="eb-up-btn eb-glb-btn" (click)="signIn($event)" (keyup)="keyPress($event)">Sign In</button>
+                        </div>
+                        <div class="row eb-line-space">
+                            <div class="col-md-12">
+                                <a style="cursor: pointer; color: #3e455c;" (click)="forgotPassword()"><u>Forgot password?</u></a>
+                                | Not a user? <a routerLink="/signup" style="color: #17b50d; cursor: pointer;" (click)="activeModal.close('Close click')"><u> Sign
+                                    Up</u> </a>
+                            </div>
+                        </div>
+                        <div class="eb-line-space">
+                            <br><br>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div>
+    <div>
+        <find-plan-shared></find-plan-shared>
+    </div>
+    <div class="container" style="margin-top: 40px;">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 eb-line-space">
+                <div *ngIf = "false">
+                    <input [(ngModel)]="email" [ngClass]="{'eb-alert' : error && email.length < 1}"
+                        type="text" class="form-control eb-text-fld"
+                        aria-label="Text input with dropdown button" placeholder="Email">
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 eb-line-space">
+                <div style="display: flex; margin-top: 15px;">
+                    <div style="margin-left: auto; margin-right: auto; text-align: center;">
+                        <img style="margin-left: 20px; width: 75px;;" src="./assets/images/letter.png" alt="">
+                        <br>
+                        <span style="font-size: 19px; font-weight: bold; padding-top: 15px;">
+                            Confirm your email
+                        </span>
+                        <br>
+                        <span>
+                            We have sent an email with a confirmation link to 'email'.
+                        </span>
+                        <br>
+                        <span>
+                            Please click on the confirmation link to continue.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ----- -->
+<div style="padding-top: 70px;">
+    <login-footer></login-footer>
+</div>
+<br>
+<br>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="eb-bg-clor eb-gbl-padding" style="background-color: #e7f0f1;">
+    <div class="container">
+        <div class="row" >
+            <div class="col" style="text-align: center; padding-top: 50px; padding-bottom: 60px;">
+                <div #reviews>
+                    <span class="eb-h1" style="color: rgb(18, 18, 75);">Why Texans need MyEnergyBuddy?</span>
+                </div>
+                <div style="margin-bottom: 50px; color: rgb(18, 18, 75);">
+                <span>Watch a quick demo to know more</span>
+                </div>
+                <div style="width: 100%; display: block;">
+                    <div style="width: 80%; position: relative;margin-left: auto; margin-right: auto;">
+                        <div *ngIf="showVideoImage" style="position: absolute;z-index: 150;">
+                            <img style="width: 100%;" src="./assets/images/video_img.png"   alt="">
+                            <br>
+                            <img class="eb-play-btn-pos" src="./assets/images/play.png"  alt="" (click)="playVideo($event)">
+                        </div>
+                        <div style="position: relative; width:100%">
+                            <video (click)="playVideo($event)" style="width: 100%;" [ngClass]="{'eb-hide-video' : showVideoImage}" #videoEl>
+                                <source src="./assets/images/MyEnergyBuddy.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

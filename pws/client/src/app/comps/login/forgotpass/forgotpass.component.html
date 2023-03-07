@@ -1,0 +1,74 @@
+<div>
+    <div *ngIf="false">
+        <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="" style="color: #3e455c; padding-right: 84px; padding-left: 84px; padding-top: 28px;">
+        <div class="container">
+            <div class="row">
+                <img style="margin-left: auto;margin-right: auto;" src="./assets/images/logo_white.png" width="35%"
+                    alt="">
+            </div>
+            <div class="row eb-line-space">
+                <div class="col-md-6">
+                    <img style="text-align: center;" src="./assets/images/e_man.jpg" width="90%" alt="">
+                </div>
+                <div class="col-md-6">
+
+                    <!-- Forgot pass start -->
+                    <div *ngIf="!successResponse">
+                        <div style="color: red;">
+                            <b>{{errorMsg}}</b>
+                        </div>
+                        <div>
+                            <div class="eb-line-space"
+                                style="font-size: 45px; font-weight: bold; color: #00187b; line-height: 43px;">
+                                Forgot Password?
+                            </div>
+                            <div class="eb-line-space">
+                                Enter the email address associated with your account.
+                                <input [(ngModel)]="userName" [ngClass]="{'eb-alert' : error && userName.length < 1}"
+                                    type="text" class="form-control eb-text-fld"
+                                    aria-label="Text input with dropdown button" placeholder="Enter Email Address"
+                                    (keyup)="keyPress($event)">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="eb-line-space">
+                                <button class="eb-up-btn eb-glb-btn" (click)="pass($event)">Next</button>
+                            </div>
+
+                            <div class="eb-line-space">
+                                <br><br>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Forgot pass end -->
+
+                    <!-- Response msg start -->
+                    <div *ngIf="successResponse" style="text-align: center; color: #3e455c;">
+                        <div >
+                            <img src="./assets/images/letter.png" width="40%" alt="">
+                        </div>
+                        <div style="padding-top: 20px;">
+                            We have sent you an email.
+                        </div>
+                        <div style="padding-top: 20px;">
+                            Please follow the instructions in the email to change your password.
+                        </div>
+                    </div>
+                    <!-- Response msg end -->
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>

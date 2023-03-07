@@ -1,0 +1,7 @@
+'use strict';
+
+module.exports = {
+    NODE_ENV: {{ getenv "hms.node.env" }},
+    CLIENT_ID: {{ getenv "hms.node.client" }},
+    PORT: {{ getenv "hms.node.port"}}
+};

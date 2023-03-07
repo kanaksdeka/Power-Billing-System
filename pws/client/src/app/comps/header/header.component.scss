@@ -1,0 +1,19 @@
+.eb-test {
+    background-color: red;
+    color: green;
+}
+
+.eb-colr-white {
+    color: white;
+}
+.eb-sign-up-btn {
+    border-radius: 30px;
+    background-color: #17af10;
+}
+
+@media (min-width: 992px) {
+    .eb-header {
+        position: absolute;
+        right: 3em;
+    }
+}

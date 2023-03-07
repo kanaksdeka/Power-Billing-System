@@ -1,0 +1,68 @@
+<div>
+    <div *ngIf="false">
+        <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="" style="color: #3e455c; padding-right: 84px; padding-left: 84px; padding-top: 28px;">
+        <div class="container" >
+            <div class="row" >
+                <img style="margin-left: auto;margin-right: auto;" src="./assets/images/logo_white.png" width="35%"  alt="">
+            </div>
+            <div class="row eb-line-space">
+                <div class="col-md-6">
+                    <img style="text-align: center;" src="./assets/images/e_man.jpg" width="90%"  alt="">
+                </div>
+                <div class="col-md-6">
+                    <!-- Forgot pass start -->
+                    <div *ngIf="!successResponse">
+                    <div style="color: red;">
+                        <b>{{errorMsg}}</b>
+                    </div>
+                    <div>
+                        <div class="eb-line-space">
+                            New Password
+                            <input [(ngModel)]="userName" [ngClass]="{'eb-alert' : error && userName.length < 1}"
+                                type="password" class="form-control eb-text-fld"
+                                aria-label="Text input with dropdown button" placeholder="Enter here"
+                                (keyup)="keyPress($event)">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="eb-line-space">
+                            Confirm Password
+                            <input [(ngModel)]="password" [ngClass]="{'eb-alert' : error && password.length < 1}"
+                                type="password" class="form-control eb-text-fld"
+                                aria-label="Text input with dropdown button" placeholder="Enter here"
+                                (keyup)="keyPress($event)">
+                        </div>
+                        <div class="eb-line-space">
+                            <button class="eb-up-btn eb-glb-btn" (click)="changePass($event)">Change Password</button>
+                        </div>
+              
+                        <div class="eb-line-space">
+                            <br><br>
+                        </div>
+
+                    </div>
+                    </div>
+                    <!-- -->
+
+                    <!-- Response msg start -->
+                    <div *ngIf="successResponse" style="text-align: center; color: #3e455c;">
+                        <div style="padding-top: 65px; font-size: 22px;">
+                            Password has been changed successfully !!
+                        </div>
+                    </div>
+                    <!-- Response msg end -->
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>

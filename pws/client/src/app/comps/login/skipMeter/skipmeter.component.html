@@ -1,0 +1,18 @@
+<div style="color: #3e455c; padding: 79px 46px 59px 46px;" (keyup)="keyPress($event)">
+    <div style="font-size: 19px; text-align: center;">
+        If you choose to skip this step MyEnergyBuddy will not have access to your electricity usage and provide
+        customized quotes.
+    </div>
+    <div style="font-size: 16px;text-align: center; margin-top: 30px;">
+        You can confirm on smart meter email later from your dashboard.
+    </div>
+    <div>
+        <div class="eb-line-space" style="text-align: center;margin-top: 40px;">
+            <button class="eb-up-btn eb-glb-btn" 
+            style="background-color: white; border: 1px solid #3e455c; color: #3e455c;" 
+            (click)="completeLater($event)" (keyup)="keyPress($event)">Complete Later</button>
+            &nbsp;&nbsp;
+            <button class="eb-up-btn eb-glb-btn" (click)="closeModal()" (keyup)="keyPress($event)">Complete Now</button>
+        </div>
+    </div>
+</div>

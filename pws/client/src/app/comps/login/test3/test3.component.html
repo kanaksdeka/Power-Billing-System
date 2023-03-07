@@ -1,0 +1,10 @@
+<div>
+    <label for="typeahead-focus">Search for a state:</label>
+    <input id="typeahead-focus" type="text" class="form-control" [(ngModel)]="provider" [ngbTypeahead]="providerSearch"
+        (focus)="focus$.next($any($event).target.value)" (click)="click$.next($any($event).target.value)"
+        #providerInstance="ngbTypeahead"
+        [resultFormatter]="formatter"
+        [inputFormatter]="inputFormatter" />
+    <hr>
+    <pre>Model: {{ provider | json }}</pre>
+</div>

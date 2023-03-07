@@ -1,0 +1,25 @@
+
+.user-say-font {
+    font-size: 23px;
+}
+
+::ng-deep .carousel-indicators li {
+    background-color: #21b50d;
+  }
+  
+::ng-deep .carousel-indicators {
+    position: relative;
+    top: 306px;
+}
+
+
+@media (max-width: 767px) {
+    .user-say-font {
+        font-size: 18px;
+    }
+
+    ::ng-deep .carousel-indicators {
+        position: absolute;
+        top: 350px;
+      }
+}

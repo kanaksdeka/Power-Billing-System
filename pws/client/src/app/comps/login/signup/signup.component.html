@@ -1,0 +1,115 @@
+<div>
+    <div>
+        <find-plan-shared></find-plan-shared>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"
+                style="color: #3e455c; text-align: center; margin-top: 60px; font-size: 19px; font-weight: bold;">
+                Good choice! Let‘s get started.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <div class="eb-line-space">
+                    First Name*
+                    <input [(ngModel)]="formData.firstName"
+                        [ngClass]="{'eb-alert' : error && formData.firstName.length < 1}" type="text"
+                        class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                        placeholder="Enter here" (keyup)="keyPress($event)">
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="eb-line-space">
+                    Last Name*
+                    <input [(ngModel)]="formData.lastName"
+                        [ngClass]="{'eb-alert' : error && formData.lastName.length < 1}" type="text"
+                        class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                        placeholder="Enter here" (keyup)="keyPress($event)">
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <div class="eb-line-space">
+                    Email*
+                    <input [(ngModel)]="formData.email" [ngClass]="{'eb-alert' : error && ( formData.email.length < 1 || formData.email !== formData.confrimEmail) }"
+                        type="text" class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                        placeholder="Enter here" (keyup)="keyPress($event)">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="eb-line-space">
+                    Confirm Email*
+                    <input [(ngModel)]="formData.confrimEmail" [ngClass]="{'eb-alert' : error && ( formData.email.length < 1 || formData.email !== formData.confrimEmail) }"
+                        type="text" class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                        placeholder="Enter here" (keyup)="keyPress($event)">
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <div class="eb-line-space">
+                    Password*
+                    <input [(ngModel)]="formData.password"
+                        [ngClass]="{'eb-alert' : error && (formData.password.length < 1 || formData.password !== formData.confirmPassword) }" type="password"
+                        class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                        placeholder="Enter here" (keyup)="keyPress($event)">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="eb-line-space">
+                    Confirm Password*
+                    <input [(ngModel)]="formData.confirmPassword"
+                        [ngClass]="{'eb-alert' : error && ( formData.confirmPassword.length < 1 || formData.password !== formData.confirmPassword) }" type="password"
+                        class="form-control eb-text-fld" aria-label="Text input with dropdown button"
+                        placeholder="Enter here" (keyup)="keyPress($event)">
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="eb-line-space" style="display: flex; margin-top: 15px;">
+                    <button class="eb-up-btn eb-glb-btn" style="margin-left: auto; margin-right: auto;"
+                        (click)="signUp($event)" (keyup)="keyPress($event)">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div style="padding-top: 30px;">
+    <login-footer></login-footer>
+</div>
+
+<!-- ----- 
+<div class="hide-on-mobile" style="margin: 10px 10px 60px 10px;">
+    <span style="float: left;">© 2020 MyEnergyBuddy</span>
+    <span style="float: right;"><a style="cursor: pointer;">Terms & Conditions</a> | <a style="cursor: pointer;">Privacy
+            Policy</a></span>
+</div>
+<div class="hide-on-desktop" style="margin: 60px 0px 5px 0px; width: 100%; text-align: center;">
+    <span style="font-size: 12px;">© 2020 MyEnergyBuddy</span>
+    <br>
+    <span style="font-size: 14px;"><a style="cursor: pointer;">Terms & Conditions</a> | <a
+            style="cursor: pointer;">Privacy Policy</a></span>
+</div>
+-->
+<br>
+<br>

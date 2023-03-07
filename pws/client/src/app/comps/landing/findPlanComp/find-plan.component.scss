@@ -1,0 +1,31 @@
+.eb-up-btn {
+    border-radius: 30px;
+    background-color: #17af10;
+    border: 0 solid black;
+    color: white;
+    font-weight: 600;
+}
+
+.eb-looltips-class .tooltip-inner {
+    background-color: #dfedf4;
+    color: #1a223f;
+    font-size: 100%;
+    opacity: 100%;
+  }
+.eb-looltips-class .arrow::before {
+    border-top-color: #162933;
+    border-right-color: #dfedf4;
+    color: #3e455c;
+  }
+.eb-tooltips{
+  position: absolute;
+  display: block;
+  font-size: 11px;
+  color: #3e455c;
+  background-color: #dfedf4;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: -162px;
+  z-index: 1500;
+}
+
